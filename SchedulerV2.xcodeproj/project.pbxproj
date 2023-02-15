@@ -151,7 +151,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 571258762385A80D00805579 /* Build configuration list for PBXProject "Scheduler" */;
+			buildConfigurationList = 571258762385A80D00805579 /* Build configuration list for PBXProject "SchedulerV2" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -375,7 +375,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		571258762385A80D00805579 /* Build configuration list for PBXProject "Scheduler" */ = {
+		571258762385A80D00805579 /* Build configuration list for PBXProject "SchedulerV2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5712588D2385A81000805579 /* Debug */,

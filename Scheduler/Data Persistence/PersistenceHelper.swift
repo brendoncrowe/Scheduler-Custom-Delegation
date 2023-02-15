@@ -73,8 +73,8 @@ class DataPersistence<T: Writeable> {
         try? saveItemsToDocumentsDirectory()
     }
     
-    // Update
-    // this function needs the index in order to update
+    // Update - 2 options
+    // 1. this function needs the index in order to update
     @discardableResult // @discardableResult silences the warning if the return value is not used by the caller
     public func update(_ oldItem: T, with newItem: T) -> Bool {
         
@@ -85,7 +85,7 @@ class DataPersistence<T: Writeable> {
         return false
     }
     
-    // this function has the index and can be updated
+    // 2. this function has the index and can be updated via the index
     @discardableResult // @discardableResult silences the warning if the return value is not used by the caller
     public func update(_ item: T, at index: Int) -> Bool {
         items[index] = item
