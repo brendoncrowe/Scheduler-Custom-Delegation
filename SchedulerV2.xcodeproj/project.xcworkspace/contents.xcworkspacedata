@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/brendoncrowe/Desktop/Xcode-Projects/SwiftUIKitApps/Scheduler-Custom-Delegation-Tab-Controller-cda19c94579319687ac35ead5fdbeb33bdf5ca75/SchedulerV2.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>
