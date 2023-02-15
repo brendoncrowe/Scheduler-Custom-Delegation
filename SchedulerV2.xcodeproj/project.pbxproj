@@ -50,7 +50,7 @@
 		571258722385A80D00805579 = {
 			isa = PBXGroup;
 			children = (
-				5712587D2385A80D00805579 /* Scheduler */,
+				5712587D2385A80D00805579 /* SchedulerV2 */,
 				5712587C2385A80D00805579 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,7 +63,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5712587D2385A80D00805579 /* Scheduler */ = {
+		5712587D2385A80D00805579 /* SchedulerV2 */ = {
 			isa = PBXGroup;
 			children = (
 				57989B6723D9C00100BC195A /* Data Persistence */,
@@ -72,7 +72,7 @@
 				57DD381123D1C999003586CD /* Supporting Files */,
 				5712588C2385A81000805579 /* Info.plist */,
 			);
-			path = Scheduler;
+			path = SchedulerV2;
 			sourceTree = "<group>";
 		};
 		57989B6723D9C00100BC195A /* Data Persistence */ = {
@@ -342,7 +342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZEKMNK5YD3;
-				INFOPLIST_FILE = Scheduler/Info.plist;
+				INFOPLIST_FILE = SchedulerV2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,7 +360,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZEKMNK5YD3;
-				INFOPLIST_FILE = Scheduler/Info.plist;
+				INFOPLIST_FILE = SchedulerV2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
