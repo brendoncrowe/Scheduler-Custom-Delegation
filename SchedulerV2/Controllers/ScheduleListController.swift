@@ -145,9 +145,8 @@ extension ScheduleListController: UITableViewDataSource {
         switch editingStyle {
         case .insert:
             // only gets called if "insertion control" exist and gets selected
-            print("inserting....")
+            break
         case .delete:
-            print("deleting..")
             // 1. remove item for the data model e.g events
             events.remove(at: indexPath.row) // remove event from events array
             
@@ -157,7 +156,7 @@ extension ScheduleListController: UITableViewDataSource {
             // 2. update the table view
             tableView.deleteRows(at: [indexPath], with: .automatic)
         default:
-            print("......")
+            break
         }
     }
     
@@ -180,7 +179,11 @@ extension ScheduleListController: UITableViewDelegate {
         let event = events[indexPath.row]
         showCreateEventVC(event)
     }
-
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "completed"
+    }
+    
 }
 
 

@@ -16,6 +16,11 @@ public enum DataPersistenceError: Error {
     case noContentsAtPath(String)
 }
 
+// step 1: custom delegation - defining the protocol
+protocol DataPersistenceDelegate: AnyObject { // AnyObject works with class types
+    func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T)
+}
+
 typealias Writeable = Codable & Equatable
 
 // DataPersistence is now type constrained to only work with Codable types
@@ -25,6 +30,10 @@ class DataPersistence<T: Writeable> {
     private let filename: String
     
     private var items: [T]
+    
+    // step 2: custom delegation - defining a reference property that will be registered at the object listening for notifications
+    weak var delegate: DataPersistenceDelegate? // weak is used in order to break a strong reference cycle between the delegate object and DataPersistence class
+
     
     public init(filename: String) {
         self.filename = filename
@@ -100,9 +109,11 @@ class DataPersistence<T: Writeable> {
     
     // Delete
     public func deleteItem(at index: Int) throws {
-        items.remove(at: index)
+        let deletedItem = items.remove(at: index) // remove() returns the element which can be stored in deletedItem
         do {
             try saveItemsToDocumentsDirectory()
+            // step 3: custom delegation - use delegate reference to notify observer of deletion
+            delegate?.didDeleteItem(self, item: deletedItem)
         } catch {
             throw DataPersistenceError.deletingError
         }

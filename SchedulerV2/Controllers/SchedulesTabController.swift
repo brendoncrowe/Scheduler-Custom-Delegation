@@ -10,6 +10,8 @@ import UIKit
 
 class SchedulesTabController: UITabBarController {
     
+    // example of dependency injection below: injected necessary controllers
+    
     private let dataPersistence = DataPersistence<Event>(filename: "schedules.plist")
     
     // get instances of the two tab controllers from storyboard
@@ -26,11 +28,15 @@ class SchedulesTabController: UITabBarController {
     // 1. get access to the UINavigationController
     // 2. get access to the first view controller down-casted to the desired controller
     private lazy var completedNavController: UINavigationController = {
-        guard let navController = storyboard?.instantiateViewController(identifier: "CompletedNavController") as? UINavigationController, let recentlyCompletedController = navController.viewControllers.first as? CompletedScheduleController else {
+        guard let navController = storyboard?.instantiateViewController(identifier: "CompletedNavController") as? UINavigationController, let completedController = navController.viewControllers.first as? CompletedScheduleController else {
             fatalError("Could not load nav controller")
         }
         // set dataPersistence property
-
+        completedController.dataPersistence = dataPersistence
+        
+        // step 4: custom delegation - set delegate object
+        completedController.dataPersistence.delegate = completedController // listening for changes. self would refer to SchedulesTabController
+        
         return navController
     }() // this closure allows for a custom initialization
 
